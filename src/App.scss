@@ -1,7 +1,7 @@
-$primary-color: #5433ff;
-$light-color: #1994ff;
+$primary-color: #5433FF;
+$light-color: #1994FF;
 $white-color: #EDF6F9;
-$grey-color: #a1a8ab;
+$grey-color: #A1A8AB;
 $alert-color: #D1345B;
 
 $default-size: 12px;
@@ -32,18 +32,18 @@ $default-shadow: 0px 0px 12px 0px rgba(25, 148, 255, 0.2);
     overflow-y: auto;
 
     &::-webkit-scrollbar-track {
-        border-radius: 10px;
+        border-radius: $default-size;
         background-color: transparent;
     }
 
     &::-webkit-scrollbar {
-        width: 12px;
-        background-color: #F5F5F5;
+        width: $default-size;
+        background-color: #EDF6F9;
     }
 
     &::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-        background-color: #798894;
+        border-radius: $default-size;
+        background-color: #A1A8AB;
     }
 }
 
