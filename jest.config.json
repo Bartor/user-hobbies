@@ -1,8 +1,5 @@
 {
     "testRegex": "((\\.|/*.)(spec))\\.tsx?$",
-    "setupFilesAfterEnv": [
-        "<rootDir>/setupTests.tsx"
-    ],
     "transform": {
         "^.+\\.tsx?$": "ts-jest"
     },
