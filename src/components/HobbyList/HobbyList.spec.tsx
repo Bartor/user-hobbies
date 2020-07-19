@@ -4,7 +4,6 @@ import { mount } from 'enzyme';
 import App from '../../App';
 import { Provider } from 'react-redux';
 import { store } from '../../logic/store';
-import HobbyList from './HobbyList';
 
 describe('App', () => {
     const appWrapper = mount(

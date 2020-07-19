@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action, getDefaultMiddleware } from '@reduxjs/toolkit';
-import usersReducer, { requestLoadUserList } from './state/users';
+import usersReducer from './state/users';
 import userHobbiesReducer from './state/userHobbies';
 import createSagaMiddleWare from 'redux-saga';
 import { watchAllSagas } from './sagas';
