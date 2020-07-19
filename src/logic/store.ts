@@ -1,8 +1,8 @@
 import { configureStore, ThunkAction, Action, getDefaultMiddleware } from '@reduxjs/toolkit';
-import usersReducer, { requestLoadUserList } from '../logic/state/users';
-import userHobbiesReducer from '../logic/state/userHobbies';
+import usersReducer, { requestLoadUserList } from './state/users';
+import userHobbiesReducer from './state/userHobbies';
 import createSagaMiddleWare from 'redux-saga';
-import { watchAllSagas } from '../logic/sagas';
+import { watchAllSagas } from './sagas';
 
 const sagaMiddleWare = createSagaMiddleWare();
 

@@ -1,4 +1,4 @@
-import { RootState } from '../../app/store';
+import { RootState } from '../store';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Hobby from '../../core/types/Hobby.interface';
 
