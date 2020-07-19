@@ -27,7 +27,7 @@ export const userHobbiesSlice = createSlice({
         requestAddHobby: (state, action: PayloadAction<Hobby>) => {
             state.loading = true;
         },
-        requestDeleteHobby: (state, action: PayloadAction<string>) => {
+        requestDeleteHobby: (state, action: PayloadAction<Hobby>) => {
             state.loading = true;
         },
         updateUserHobbies: (state, action: PayloadAction<Hobby[]>) => {

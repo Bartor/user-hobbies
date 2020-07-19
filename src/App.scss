@@ -1,17 +1,17 @@
 $primary-color: #5433ff;
 $light-color: #1994ff;
 $white-color: #EDF6F9;
+$grey-color: #a1a8ab;
 $alert-color: #D1345B;
 
 $default-size: 12px;
 $default-shadow: 0px 0px 12px 0px rgba(25, 148, 255, 0.2);
 
-$default-gradient: linear-gradient(130deg, #5433ff, #1474ff 31%, #1994ff 55%, #20bdff);
-
 %box {
     border-radius: $default-size;
     box-shadow: $default-shadow;
     padding: $default-size;
+    font-size: 16px;
 
     border: 0;
 
@@ -44,5 +44,27 @@ $default-gradient: linear-gradient(130deg, #5433ff, #1474ff 31%, #1994ff 55%, #2
     &::-webkit-scrollbar-thumb {
         border-radius: 10px;
         background-color: #798894;
+    }
+}
+
+.swal-buttons {
+    @extend %box;
+    @extend %clickable;
+
+    margin: $default-size;
+    color: $white-color;
+    cursor: pointer;
+    border-radius: $default-size;
+
+    &:focus {
+        outline: 0;
+    }
+
+    &.swal-confirm {
+        background-color: $alert-color;
+    }
+
+    &.swal-cancel {
+        background-color: $primary-color;
     }
 }

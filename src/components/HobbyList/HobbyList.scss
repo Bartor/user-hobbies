@@ -61,11 +61,11 @@ article#hobby-list {
 
             cursor: pointer;
             flex-grow: 1;
-            background: $default-gradient;
+            background-color: $primary-color;
             color: $white-color;
 
             &:disabled {
-                filter: saturate(0) opacity(0.5);
+                background-color: $grey-color;
 
                 &:hover {
                     cursor: not-allowed;

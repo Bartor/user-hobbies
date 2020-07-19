@@ -17,8 +17,15 @@ export default function HobbyList() {
         <tr key={hobby.id}>
             <td>{translatePassion(hobby.level)}</td>
             <td>{hobby.name}</td>
-            <td>{new Date(hobby.since).getFullYear()}</td>
-            <td><button className='detele' onClick={() => dispatch(requestDeleteHobby(hobby.id))}>Delete this hobby</button></td>
+            <td>Since {new Date(hobby.since).getFullYear()}</td>
+            <td>
+                <button
+                    className='detele'
+                    onClick={() => dispatch(requestDeleteHobby(hobby))}
+                >
+                    Delete this hobby
+                </button>
+            </td>
         </tr>
     ));
 

@@ -38,7 +38,7 @@ article#user-list {
 
                 cursor: pointer;
                 flex-grow: 1;
-                background: $default-gradient;
+                background-color: $primary-color;
                 color: $white-color;
             }
         }
@@ -67,7 +67,7 @@ article#user-list {
 
                         &.active {
                             color: $white-color;
-                            background: $default-gradient;
+                            background-color: $primary-color;
                         }
                     }
                 }
