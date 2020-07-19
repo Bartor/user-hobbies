@@ -5,7 +5,11 @@ import App from './App';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
+import server from './logic/api/server';
+import { requestLoadUserList } from './logic/state/users';
 
+server();
+store.dispatch(requestLoadUserList());
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

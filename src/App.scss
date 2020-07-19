@@ -1,7 +1,48 @@
-$primary-color: #355070;
-$light-color: #1B998B;
-$accent-color: #C96480;
+$primary-color: #5433ff;
+$light-color: #1994ff;
 $white-color: #EDF6F9;
+$alert-color: #D1345B;
 
 $default-size: 12px;
-$default-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.2);
+$default-shadow: 0px 0px 12px 0px rgba(25, 148, 255, 0.2);
+
+$default-gradient: linear-gradient(130deg, #5433ff, #1474ff 31%, #1994ff 55%, #20bdff);
+
+%box {
+    border-radius: $default-size;
+    box-shadow: $default-shadow;
+    padding: $default-size;
+
+    border: 0;
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+%clickable {
+    transition: all 0.15s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+%scrollable {
+    overflow-y: auto;
+
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar {
+        width: 12px;
+        background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #798894;
+    }
+}

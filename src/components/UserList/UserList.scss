@@ -1,8 +1,77 @@
 @import '../../App.scss';
 
-article {
+article#user-list {
     display: flex;
+    flex-flow: column;
     flex-grow: 1;
+    max-height: 100%;
 
-    justify-content: center;
+    section {
+        padding: $default-size;
+        display: flex;
+
+        &.scrollable {
+            @extend %scrollable;
+        }
+
+        form {
+            margin: -$default-size/2;
+
+            display: flex;
+            flex-grow: 1;
+            flex-wrap: wrap;
+
+            &>* {
+                margin: $default-size/2;
+            }
+
+            input {
+                @extend %box;
+
+                flex-grow: 1;
+            }
+
+            button {
+                @extend %box;
+                @extend %clickable;
+
+
+                cursor: pointer;
+                flex-grow: 1;
+                background: $default-gradient;
+                color: $white-color;
+            }
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 0 $default-size;
+            flex-grow: 1;
+
+            tbody {
+                tr {
+                    cursor: pointer;
+
+                    td {
+                        @extend %box;
+                        @extend %clickable;
+
+                        &:hover {
+                            transform: scale(1.05);
+                        }
+
+                        &#info {
+                            cursor: auto;
+                            transform: none;
+                        }
+
+                        &.active {
+                            color: $white-color;
+                            background: $default-gradient;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

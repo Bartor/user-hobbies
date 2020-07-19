@@ -16,4 +16,37 @@ html {
   height: 100%;
   display: flex;
   flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  flex-grow: 1;
+  max-height: 80%;
+  width: 80%;
+
+  flex-wrap: wrap;
+  display: flex;
+}
+
+@media only screen and (max-width: 1200px) {
+  main {
+    width: 100%;
+  }
+}
+
+
+::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: transparent;
 }

@@ -2,16 +2,17 @@
 
 header {
     padding: $default-size;
+    border-radius: $default-size;
 
-    background-color: $primary-color;
-    color: $white-color;
     display: flex;
     flex-flow: column;
 
-    box-shadow: $default-shadow;
-
     h1 {
-        margin: $default-size;
+        align-self: flex-start;
+        background: $default-gradient;
+        background-clip: text;
+        color: transparent;
+        margin: 0;
         font-size: $default-size * 4;
     }
 
@@ -22,10 +23,10 @@ header {
             padding: $default-size;
             background-color: $white-color;
             text-decoration: none;
-            color: $accent-color;
+            color: $light-color;
 
             &:hover {
-                background-color: $accent-color;
+                background-color: $light-color;
                 color: $primary-color;
             }
         }

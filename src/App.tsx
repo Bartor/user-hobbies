@@ -9,6 +9,7 @@ import {
 import './App.scss';
 import Navigation from './components/Navigation/Navigation';
 import UserList from './components/UserList/UserList';
+import HobbyList from './components/HobbyList/HobbyList';
 
 const navLinks: {
   uri: string,
@@ -25,7 +26,10 @@ function App() {
           path="/"
           render={() => (
             <React.Fragment>
-              <UserList />
+              <main>
+                <UserList />
+                <HobbyList />
+              </main>
             </React.Fragment>
           )}
         />

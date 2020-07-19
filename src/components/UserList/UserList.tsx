@@ -1,35 +1,61 @@
-import React from 'react';
-import './UserList.scss';
+import React, { useState, FormEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUsers, requestAddUser } from '../../logic/state/users';
+import { requestUser, selectCurrentUser } from '../../logic/state/userHobbies';
+
+import './UserList.scss';
 
 export default function UserList() {
     const users = useSelector(selectUsers);
+    const currentUser = useSelector(selectCurrentUser);
+
     const dispatch = useDispatch();
+    const [username, setUsername] = useState('');
 
     const userElements = users.users.map(user => (
         <tr
-            onClick={() => console.log(user.id)}
+            key={user.id}
+            onClick={() => dispatch(requestUser(user.id))}
         >
-            <td>{user.name}</td>
+            <td className={user.id === currentUser.userId ? 'active' : ''}
+            >{user.name}</td>
         </tr>
     ));
 
+    const noUsersMessage = (
+        <tr>
+            <td id='info' >No users registered yet</td>
+        </tr>
+    );
+
+    function addNewUser(e: FormEvent) {
+        e.preventDefault();
+        dispatch(requestAddUser(username));
+        setUsername('');
+    }
+
     return (
-        <article>
+        <article id='user-list'>
             <section>
-                <input />
-                <button
-                    onClick={() => dispatch(requestAddUser('test'))
-                    }>
-                    Add a user
-                </button>
+                <form onSubmit={addNewUser}>
+                    <input
+                        required
+                        value={username}
+                        onChange={e => setUsername(e.target.value)}
+                        placeholder='Username'
+                    />
+                    <button type='submit'>
+                        Add a user
+                    </button>
+                </form>
+            </section>
+            <section className='scrollable'>
                 <table>
-                    <tbody>
-                        {userElements}
+                    <tbody className={users.loading || currentUser.loading ? 'loading' : ''}>
+                        {userElements.length ? userElements : noUsersMessage}
                     </tbody>
                 </table>
             </section>
-        </article>
+        </article >
     );
 }

@@ -9,9 +9,7 @@ export interface UsersState {
 }
 
 const initialState: UsersState = {
-    users: [
-        { id: '123', name: 'Pjes' } // edit later
-    ],
+    users: [],
     loading: false,
     error: ''
 }
@@ -24,18 +22,22 @@ export const usersSlice = createSlice({
             state.loading = true;
             state.error = '';
         },
+        requestLoadUserList: (state) => {
+            state.loading = true;
+            state.error = '';
+        },
         updateUserList: (state, action: PayloadAction<User[]>) => {
             state.loading = false;
             state.users = action.payload;
         },
-        failLoading: (state, action: PayloadAction<string>) => {
+        failLoadUser: (state, action: PayloadAction<string>) => {
             state.error = action.payload;
         }
     }
 });
 
 // action generators
-export const { requestAddUser, updateUserList, failLoading } = usersSlice.actions;
+export const { requestAddUser, requestLoadUserList, updateUserList, failLoadUser } = usersSlice.actions;
 
 // slice reducer
 export const selectUsers = (state: RootState) => state.users;
