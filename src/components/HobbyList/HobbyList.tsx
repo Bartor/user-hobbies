@@ -11,7 +11,7 @@ export default function HobbyList() {
 
     const [passion, setPassion] = useState('LOW');
     const [name, setName] = useState('');
-    const [year, setYear] = useState('');
+    const [year, setYear] = useState(''); // years are stored "as is" and later converted into ISO-timestamps
 
     const hobbyElements = currentUser.hobbies.map(hobby => (
         <tr key={hobby.id}>
@@ -66,14 +66,14 @@ export default function HobbyList() {
                     </select>
                     <input required
                         value={name}
-                        placeholder='Name of the hobby'
+                        placeholder='Hobby name'
                         onChange={e => setName(e.target.value)}
                     />
                     <input required
                         value={year}
                         max={new Date().getFullYear()}
                         min={1900}
-                        placeholder='Year of the start'
+                        placeholder='Starting year'
                         type='number'
                         onChange={e => setYear(e.target.value)}
                     />

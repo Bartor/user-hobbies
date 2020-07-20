@@ -3,13 +3,17 @@ import { getUserList, addUser, getUser, addHobby, deleteHobby } from './api/clie
 import { call, put, takeEvery, select } from 'redux-saga/effects'
 import { updateUserList, failLoadUser, requestAddUser, requestLoadUserList } from './state/users';
 import { updateUserHobbies, requestUser, failLoadHobbies, selectCurrentUser, requestAddHobby, requestDeleteHobby } from './state/userHobbies';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
-
 import Hobby from '../core/types/Hobby.interface';
 
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 const swal = withReactContent(Swal);
-async function confirm(hobby: Hobby) {
+
+/**
+ * Shows a deletion confirmation dialog.
+ * @param hobby Hobby diplayed in the dialog.
+ */
+async function confirmDeletionDialog(hobby: Hobby) {
     return await swal.fire({
         title: `Delete ${hobby.name}?`,
         showCancelButton: true,
@@ -63,7 +67,7 @@ export function* addHobbyWorker(action: PayloadAction<Hobby>) {
 }
 
 export function* promptDeleteHobbyWorker(action: PayloadAction<Hobby>) {
-    const result = yield call(confirm, action.payload);
+    const result = yield call(confirmDeletionDialog, action.payload);
     if (result.isConfirmed) {
         try {
             const currentUser = yield select(selectCurrentUser);

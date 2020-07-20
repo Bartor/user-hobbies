@@ -16,6 +16,12 @@ const initialState: UserHobbiesState = {
     error: ''
 };
 
+
+/**
+ * Common naming convention:
+ * - 'requestX' actions assume that the saga takes care of the side effects
+ * - other action just work on the current state
+ */
 export const userHobbiesSlice = createSlice({
     name: 'userHobbies',
     initialState,

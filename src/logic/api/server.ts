@@ -3,16 +3,36 @@ import User from "../../core/types/User.interface";
 import Hobby from "../../core/types/Hobby.interface";
 import { PassionLevel } from "../../core/types/PassionLevel.enum";
 
-let userId = 0;
-let hobbyId = 0;
+/**
+ * This is a mocked HTTP server using Mirage.js; it intercepts
+ * http request in the app and matches them with endpoints defined
+ * in this file. Has a simple in-memory storage.
+ */
 
+// sample data
 const users: (User & { hobbies: Hobby[] })[] = [
     {
-        id: '-1', name: 'Bartor', hobbies: [
-            { id: '-1', since: new Date().toISOString(), name: 'xDDD', level: PassionLevel.HIGH }
+        id: '0', name: 'John Smith', hobbies: [
+            { id: '0', since: new Date().toISOString(), name: 'Hiking', level: PassionLevel.HIGH },
+            { id: '1', since: new Date().toISOString(), name: 'Collecting stamps', level: PassionLevel.LOW }
+        ]
+    },
+    {
+        id: '1', name: 'Anna Walzberg', hobbies: [
+            { id: '2', since: new Date().toISOString(), name: 'Trains, locomotives', level: PassionLevel.VERY_HIGH },
+            { id: '3', since: new Date().toISOString(), name: 'Gardening', level: PassionLevel.LOW },
+            { id: '4', since: new Date().toISOString(), name: 'Programming', level: PassionLevel.VERY_HIGH }
+        ]
+    },
+    {
+        id: '2', name: 'Wolfgang Amadeus', hobbies: [
+            { id: '5', since: new Date().toISOString(), name: 'Classical music', level: PassionLevel.MEDIUM }
         ]
     }
 ];
+
+let userId = users.length;
+let hobbyId = users.reduce((acc, u) => acc + u.hobbies.length, 0);
 export default function() {
     createServer({
         routes() {

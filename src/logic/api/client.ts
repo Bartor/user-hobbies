@@ -1,5 +1,9 @@
 import Hobby from "../../core/types/Hobby.interface";
 
+/**
+ * Common boilerplate code for other functions.
+ * @param fetchPromise A promise to be processed.
+ */
 async function processRequest(fetchPromise: Promise<any>) {
     const response = await fetchPromise;
     const body = await response.json();

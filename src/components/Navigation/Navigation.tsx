@@ -9,7 +9,7 @@ export interface NavigationProps {
     }[];
 }
 
-
+// nav links are currently empty, but can be later used to add new functionality
 export default function Navigation({ navLinks }: NavigationProps) {
     const navElements = navLinks.map(navLink => (
         <Link to={navLink.uri}>
